@@ -1,0 +1,18 @@
+
+<nav class="navbar">
+  <h1 class="navbar-title" routerLink="/admin/dashboard">Конструктор</h1>
+
+  <a class="navbar-link" [routerLink]="['/admin', 'create']">Создать анкету</a>
+  <a class="navbar-link" routerLink="/">На главную</a>
+
+  <div class="navbar-btns">
+    <a *ngIf="isLoggedIn" class="profile-widget-toggle" (click)="toggleProfileWidget()">
+      <img src="https://cdn-icons-png.flaticon.com/512/55/55003.png" alt="Profile" width="25" height="20">
+    </a>
+  </div>
+</nav>
+
+<div class="container">
+  <app-profile-widget *ngIf="isProfileWidgetToggled"></app-profile-widget>
+  <router-outlet></router-outlet>
+</div>

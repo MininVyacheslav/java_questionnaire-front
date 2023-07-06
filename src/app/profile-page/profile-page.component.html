@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>Профиль</h3>
+  <div class="info">
+    <img src="https://okeygeek.ru/wp-content/uploads/2020/03/no_avatar.png">
+    <div class="info-details">
+      <div class="field">
+        <div><b>Email:</b></div>
+        <div>{{ userData.email }}</div>
+      </div>
+      <div class="field">
+        <div><b>Имя:</b></div>
+        <div>{{ userData.username }}</div>
+      </div>
+      <div class="field">
+        <div><b>Роль:</b></div>
+        <div>{{ userData.role }}</div>
+      </div>
+      <button *ngIf="userData.role === 'Администратор'" routerLink="/admin/dashboard">Конструктор</button>
+    </div>
+  </div>
+
+  <div>
+    <app-questionaire 
+      *ngFor="let questionaire of questionaires"
+      [id]="questionaire.id" 
+      [title]="questionaire.title"
+    ></app-questionaire>
+  </div>
+</div>

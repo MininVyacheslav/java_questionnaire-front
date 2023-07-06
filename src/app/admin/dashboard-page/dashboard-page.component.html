@@ -1,0 +1,9 @@
+<div class="container">
+  <app-admin-questionaire
+    *ngFor="let questionaire of questionaires"
+    [id]="questionaire.id" 
+    [title]="questionaire.title"
+    (deleteEvent)="getQuestionaires()"
+    class="questionaire-card"
+  ></app-admin-questionaire>
+</div>

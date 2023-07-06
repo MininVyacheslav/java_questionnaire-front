@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding: 0 2rem;
+}
+
+.navbar-title {
+  margin-left: 6rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.navbar-link {
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-btns {
+  display: flex;
+  margin-right: 1.5rem;
+}
+
+.profile-widget-toggle {
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  padding-top: 3rem;
+}

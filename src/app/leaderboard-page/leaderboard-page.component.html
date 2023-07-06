@@ -1,0 +1,17 @@
+<div class="container">
+  <table class="leaderboard-table">
+    <thead>
+      <tr>
+        <th>Имя пользователя</th>
+        <th>Очки</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of leaderboard">
+        <td>{{ user.user.username }}</td>
+        <td>{{ user.score }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button routerLink="/">На главную</button>
+</div>

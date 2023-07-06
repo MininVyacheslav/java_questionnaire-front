@@ -1,0 +1,14 @@
+<div class="widget">
+  <div class="info">
+    <img src="https://okeygeek.ru/wp-content/uploads/2020/03/no_avatar.png">
+    <div>
+      <div>{{ userData.email }}</div>
+      <div>{{ userData.username }}</div>
+      <div>{{ userData.role }}</div>
+    </div>
+  </div>
+  <div class="btns-container">
+    <button class="btn btn-profile" routerLink="/profile">Профиль</button>
+    <button class="btn btn-logout" (click)="logout()">Выйти</button>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+
+body {
+  background-color: #f3f3f3;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 30rem;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.q-input {
+  margin-top: 1.5rem;
+}
+
+.question-container {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1.5rem;
+}
+
+.answer-container {
+  margin-top: 1.5rem;
+}
+
+.answer-group {
+  margin-bottom: 0.8rem;
+}
+
+.answer-input {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.add-q-btn {
+  margin: 1rem 0;
+}
+
+small {
+  color: rgb(180, 0, 0);
+}

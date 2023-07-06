@@ -1,0 +1,62 @@
+
+<form [formGroup]="form" class="form-container">
+  <div class="form-group">
+    <input formControlName="title" type="text" class="form-control title" placeholder="Название анкеты">
+    
+    <div *ngIf="title.invalid && (title.dirty || title.touched)">
+      <div *ngIf="title.errors?.['required']">
+        <small>Название анкеты обязательное поле</small>
+      </div>
+    </div>
+  </div>
+
+  <div 
+    formArrayName="questions"
+    *ngFor="let q of questions.controls; index as i"
+    class="question-container"
+  >
+    <div [formGroupName]="i">
+      <input formControlName="qText" type="text" class="form-control q-input" placeholder="Вопрос №{{i + 1}}">
+      <button (click)="addAnswer(i)" class="btn btn-primary">Добавить ответ</button>
+      <button [disabled]="questions.length <= 1" (click)="deleteQuestion(i)" class="btn btn-danger">Удалить вопрос</button>
+      
+      <div *ngIf="getQuestionText(i).invalid && (getQuestionText(i).dirty || getQuestionText(i).touched)">
+        <div *ngIf="getQuestionText(i).errors?.['required']">
+          <small>Вопрос №{{ i + 1 }} обязательное поле</small>
+        </div>
+      </div>
+      <div *ngIf="getRightAnswerRadio(i).invalid && (getQuestionText(i).dirty || getQuestionText(i).touched)">
+        <div>
+          <small>Не выбран правильный ответ</small>
+        </div>
+      </div>
+
+      <div class="answer-container">
+        <div *ngFor="let a of getAnswersControls(i); index as j" class="answer-group">
+          <div class="form-check">
+            <input type="radio" [value]="j" formControlName="rightAnswerIdx" class="form-check-input"> 
+            <span formArrayName="answers">
+              <input [formControlName]="j" type="text" class="form-control answer-input" placeholder="Ответ №{{j + 1}}">
+            </span>
+            <button [disabled]="getAnswersControls(i).length <= 2" (click)="deleteAnswer(i, j)" class="btn btn-danger">Удалить ответ</button>
+
+            <div *ngIf="getAnswer(i, j).invalid && (getAnswer(i, j).dirty || getAnswer(i, j).touched)">
+              <div *ngIf="getAnswer(i, j).errors?.['required']">
+                <small>Ответ №{{ j + 1 }} обязательное поле</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <button (click)="addQuestion()" class="btn btn-success add-q-btn">Добавить вопрос</button>
+
+  <div class="form-group">
+    <button [disabled]="form.invalid || questions.invalid" (click)="createQuestionnaire()" class="btn btn-primary">Создать анкету</button>
+  </div>
+  <div *ngIf="title.invalid && questions.invalid && (title.dirty || title.touched || questions.dirty || questions.touched)">
+    <small>Анкета не корректна</small>
+  </div>
+</form>
